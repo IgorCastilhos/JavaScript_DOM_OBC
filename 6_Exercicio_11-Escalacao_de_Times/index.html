@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Escalação de Times</title>
+  </head>
+  <body>
+    <h1>Escalação do Time</h1>
+
+    <hr />
+    <!--
+      Precisa-se salvar a posição, o nome e Nº do Jogador.
+    -->
+    <section>
+      <div class="Add_Player">
+        <h2>Escalar Jogador</h2>
+        <p>
+          <label for="position">Posição:</label>
+          <input type="text" name="position" id="position" />
+          <!-- Input para receber a posição do Jogador -->
+
+          <label for="name">Nome:</label>
+          <input type="text" name="name" id="name" />
+          <!-- Input para receber o nome do Jogador -->
+
+          <label for="number">Número:</label>
+          <input type="text" name="number" id="number" />
+          <!-- Input para receber o número do Jogador -->
+
+          <button onclick="addPlayer()">Escalar</button>
+          <!-- Botão para acionar a função que adiciona um Jogador -->
+        </p>
+      </div>
+
+      <div class="Rmv_player">
+        <h2>Remover Jogador</h2>
+        <p>
+          <label for="numberToRemove">Número:</label>
+          <input type="text" name="numberToRemove" id="numberToRemove" />
+          <!-- Input para receber o número do Jogador que deseja remover -->
+
+          <button onclick="removePlayer()">Remover Jogador</button>
+          <!-- Botão para acionar a função que remove um Jogador -->
+        </p>
+      </div>
+    </section>
+
+    <section class="list_of_player">
+      <h2>Time</h2>
+      <ul id="teamList"></ul>
+      <!-- Lista que exibe todos os jogadores do time -->
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
