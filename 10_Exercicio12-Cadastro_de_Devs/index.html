@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro de Devs</title>
+  </head>
+  <body>
+    <h1>Exercício 12 - Cadastro de Devs</h1>
+    <hr />
+
+    <h2>Cadastrar Novo Desenvoledor</h2>
+
+    <form id="devForm">
+      <!-- Id: praticidade para selecinar o form -->
+      <label for="fullname">Nome Completo: </label>
+      <!-- label: legenda para um item na interface -->
+      <input type="text" name="fullname" id="fullname" />
+      <!-- input: usado para receber dados do usuário -->
+      <br /><br />
+
+      <label>Tecnologias</label><br />
+      <!-- label: pra seção onde o usuário acessa novos campos -->
+      <button id="addTechBtn" type="button">
+        <!-- type="button", pois esse botão não é para finalizar o formulário -->
+        Adicionar Tecnologia:
+      </button>
+      <ul id="stackInputs"></ul>
+      <!-- ul: elemento onde uma nova linha será preenchida com a tecnologia do usuário e tempo de exp -->
+      <br />
+      <button type="submit">Cadastrar</button>
+      <!-- button: para enviar os dados e finalizar a operação -->
+    </form>
+    <script src="script.js"></script>
+  </body>
+</html>
