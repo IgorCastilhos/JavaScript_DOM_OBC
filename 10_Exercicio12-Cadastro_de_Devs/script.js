@@ -39,8 +39,7 @@ let inputRows = 0;
 // Nº de linhas que a lista-não-ordenada terá, inicialmente 0
 
 /**
- * Adicionar um eventListener do tipo click que cria alguns
- * elementos e os exibe em tela.
+ * Adiciona um eventListener do tipo click que cria alguns elementos e os exibe em tela.
  */
 
 addTechBtn.addEventListener("click", function (ev) {
@@ -94,10 +93,12 @@ addTechBtn.addEventListener("click", function (ev) {
   // Cria uma label com o texto indicativo de 5+ anos, junto com o id3
 
   const removeRowBtn = document.createElement("button");
+  // Cria um elemento botão, que será usado para remover uma linha
   removeRowBtn.type = "button";
   removeRowBtn.innerText = "Remover";
   removeRowBtn.addEventListener("click", function () {
     stackInputs.removeChild(newRow);
+    // A função callback remove um filho(newRow) da stackInputs
   });
 
   newRow.append(
@@ -111,34 +112,45 @@ addTechBtn.addEventListener("click", function (ev) {
     expRadio3,
     expLabel3,
     removeRowBtn
-  ); // Acrescenta todos os novos elementos
+  ); // Acrescenta todos os elementos na linha
 
   stackInputs.appendChild(newRow);
   // Pega o stackInputs, que é a lista, e adiciona o item com o appendChild
 });
 
+// Adicionando o comportamento de submit ao formulário
 form.addEventListener("submit", function (ev) {
   ev.preventDefault();
-
+  // Importante! Passar o método preventDefault para que a página não atualize
   const fullnameInput = document.getElementById("fullname");
+  // Captura o input com o Id fullname
   const inputRows = document.querySelectorAll(".inputRow");
-
+  // Captura todas as linhas com a classe inputRow
   let technologies = [];
+  // Array de tecnologias que armazena as informações que foram preenchidas no form
+
   inputRows.forEach(function (row) {
-    // #rowId input[name="techName"]
     const techName = document.querySelector(
       "#" + row.id + ' input[name="techName"]'
     ).value;
+    // #rowId input[name="techName"]
+
     const techExp = document.querySelector(
       "#" + row.id + ' input[type="radio"]:checked'
     ).value;
+    // #rowId input[type="radio"]:checked - assim ele pega a radio que estiver marcada e com o .value, retorna o valor.
+
     technologies.push({ name: techName, exp: techExp });
+    // Adiciona um objeto que vai ter uma prop name(techName) e exp(techExp)
   });
 
   const newDev = { fullname: fullnameInput.value, technologies: technologies };
+  // Objeto com as props fullname e technologies
   developers.push(newDev);
+  // Adiciona um novo desenvolvedor no Array developers
   alert("Dev cadastrado com sucesso!");
 
+  // Limpa o valor do input de nome da tecnologia e remove a linha por completo
   fullnameInput.value = "";
   inputRows.forEach(function (row) {
     row.remove();
