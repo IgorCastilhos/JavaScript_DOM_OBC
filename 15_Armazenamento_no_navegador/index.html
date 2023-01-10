@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .is-light {
+        background-color: #f1f5f9;
+        color: #212529;
+      }
+      .is-dark {
+        background-color: #212529;
+        color: #f1f5f9;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Recursos de Armazenamento</h1>
+    <hr />
+
+    <button id="lightBtn">Tema Claro</button>
+    <button id="darkBtn">Tema Escuro</button>
+    <button id="switchBtn">Alternar Tema Claro/Escuro</button>
+
+    <section>
+      <ul>
+        <li>
+          <h2>Session Storage</h2>
+          <ul>
+            <li>
+              Forma simples de armazenar dados no navegador durante a navegação
+            </li>
+
+            <li>
+              Persistem mesmo após mudar de página em um mesmo site enquanto a
+              aba/janela estiver aberta
+            </li>
+            <li>
+              <b>Existem somente enquanto a aba daquele site está aberta</b>, ao
+              fechar o sessionStorage é limpo
+            </li>
+            <label for="session">Digite uma informação:</label>
+            <input type="text" id="session" />
+            <button id="sessionBtn">Guardar!</button>
+            <button id="readSession">Ler</button>
+          </ul>
+        </li>
+        <br />
+
+        <li>Local Storage</li>
+        <ul>
+          <li>
+            Dados armazenados no navegador que persistem mesmo após fechar a
+            aba/janela do navegador
+          </li>
+          <li>
+            Existem <b>"para sempre"</b> até serem removidos, não possuem data
+            de expiração
+          </li>
+          <label for="local">Digite uma informação:</label>
+          <input type="text" id="local" />
+          <button id="localBtn">Guardar!</button>
+          <button id="readLocal">Ler</button>
+        </ul>
+        <br />
+
+        <li>Cookies</li>
+        <ul>
+          <li>
+            Dados armazenados em pequenos arquivos de texto no computador do
+            cliente
+          </li>
+          <li><b>Podem possuir uma data de expiração</b></li>
+          <li>
+            São enviados nas requisições e podem existir no servidor, sendo
+            devolvidos quando uma página html for solicitada
+          </li>
+          <label for="cookie">Digite uma informação:</label>
+          <input type="text" id="cookie" />
+          <button id="cookieBtn">Guardar!</button>
+          <br /><br />
+          <label for="cookie2">Digite uma informação:</label>
+          <input type="text" id="cookie2" />
+          <button id="cookie2Btn">Guardar!</button>
+        </ul>
+      </ul>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -68,6 +68,52 @@ input.addEventListener("keydown", function (ev) {
 document.getElementById("equal").addEventListener("click", calculate);
 
 function calculate() {
+  resultInput.value = "ERROR";
+  resultInput.classList.add("error");
+  // Sempre executa por padrão essas 2 linhas
   const result = eval(input.value);
+  // Depois calcula o resultado com eval
   resultInput.value = result;
+  // Se funcionar, vai colocar o resultado no input e
+  resultInput.classList.remove("error");
+  // remover a classe de erro
 }
+
+// Adicionando a funcionalidade de Clipboard (copiar o resultado da operação)
+document
+  .getElementById("copyToClipboard")
+  .addEventListener("click", function (ev) {
+    // Parâmetro ev (evento) é usado para selecionar o botão e informar que o resultado foi copiado
+    const button = ev.currentTarget;
+    if (button.innerText === "Copy") {
+      button.innerText = "Copied";
+      button.classList.add("success");
+      navigator.clipboard.writeText(resultInput.value);
+      // Propriedade do Objeto Window (navigator) possui a funcionalidade clipboard e é passado o método writeText para escrever o valor do input, que é o resultado da calculadora.
+    } else {
+      // Quando o texto já tiver sido copiado, o botão Copy voltará ao normal
+      button.innerText = "Copy";
+      button.classList.remove("success");
+    }
+  });
+
+// Adicionando a funcionalidade de trocar o tema da calculadora (escuro/claro)
+document.getElementById("themeSwitcher").addEventListener("click", function () {
+  /**
+   * Essa função troca o tema a partir das variáveis do CSS;
+   * Basicamente inverte a cor do fundo pela cor da fonte.
+   */
+  if (main.dataset.theme === "dark") {
+    root.style.setProperty("--bg-color", "#f1f5f9");
+    root.style.setProperty("--border-color", "#aaa");
+    root.style.setProperty("--font-color", "#212529");
+    root.style.setProperty("--primary-color", "#26834a");
+    main.dataset.theme = "light";
+  } else {
+    root.style.setProperty("--bg-color", "#212529");
+    root.style.setProperty("--border-color", "#666");
+    root.style.setProperty("--font-color", "#f1f5f9");
+    root.style.setProperty("--primary-color", "#4dff91");
+    main.dataset.theme = "dark";
+  }
+});
